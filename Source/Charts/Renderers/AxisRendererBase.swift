@@ -115,6 +115,7 @@ open class AxisRendererBase: Renderer
             interval = interval < axis.granularity ? axis.granularity : interval
         }
         
+        guard !interval.isNaN else { return }
         // Normalize interval
         let intervalMagnitude = pow(10.0, Double(Int(log10(interval)))).roundedToNextSignficant()
         let intervalSigDigit = Int(interval / intervalMagnitude)
